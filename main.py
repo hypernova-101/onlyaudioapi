@@ -6,7 +6,7 @@ url = 'https://www.googleapis.com/youtube/v3/videos'
 
 app = Flask(__name__)
 
-@app.route("/vid")
+@app.route("/video")
 def vid():
     query = request.headers.get('q')
     if query == None:
@@ -36,8 +36,6 @@ def vid():
                 'thumbnailUrl' : item['snippet']['thumbnails']['default']['url'],
                 'title' : item['snippet']['title']
             })
-
         return vid_info
 
-
-app.run(port=3000, debug=True)
+app.run(port=81, host='0.0.0.0')
